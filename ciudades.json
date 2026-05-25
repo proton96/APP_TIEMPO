@@ -1,0 +1,49 @@
+{
+  "ciudades": [
+    {
+      "nombre": "Madrid",
+      "pais": "España",
+      "temperatura": 28,
+      "humedad": 40,
+      "viento": 12,
+      "estado": "Soleado",
+      "icono": "☀️"
+    },
+    {
+      "nombre": "Barcelona",
+      "pais": "España",
+      "temperatura": 24,
+      "humedad": 65,
+      "viento": 18,
+      "estado": "Nublado",
+      "icono": "☁️"
+    },
+    {
+      "nombre": "Granada",
+      "pais": "España",
+      "temperatura": 30,
+      "humedad": 35,
+      "viento": 10,
+      "estado": "Despejado",
+      "icono": "🌤️"
+    },
+    {
+      "nombre": "Sevilla",
+      "pais": "España",
+      "temperatura": 33,
+      "humedad": 30,
+      "viento": 9,
+      "estado": "Muy soleado",
+      "icono": "🌞"
+    },
+    {
+      "nombre": "París",
+      "pais": "Francia",
+      "temperatura": 19,
+      "humedad": 70,
+      "viento": 14,
+      "estado": "Lluvia ligera",
+      "icono": "🌧️"
+    }
+  ]
+}
