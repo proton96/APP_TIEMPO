@@ -1,49 +1,143 @@
+/* --- 1. Estilos Generales del Cuerpo de la Página --- */
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #74ebd5, #9face6);
+  /* Define la familia de fuentes principal para toda la página. Usa fuentes modernas y comunes. */
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  /* Crea un fondo con un degradado lineal que va de un azul cielo a un azul más intenso. */
+  background: linear-gradient(to top, #4a90e2, #87ceeb);
+  /* Elimina el margen por defecto del navegador. */
   margin: 0;
+  /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana. */
   min-height: 100vh;
+  /* Usa Flexbox para centrar el contenido. */
   display: flex;
+  /* Centra el contenido horizontalmente. */
   justify-content: center;
+  /* Centra el contenido verticalmente. */
   align-items: center;
 }
 
+/* --- 2. Contenedor Principal (Tarjeta de Cristal) --- */
 .contenedor {
-  background: white;
-  width: 360px;
+  /* Fondo semitransparente, clave para el efecto de cristal. */
+  background: rgba(255, 255, 255, 0.2);
+  /* Aplica un desenfoque al contenido que está DETRÁS del contenedor. Este es el efecto "esmerilado". */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+  /* Ancho fijo para la tarjeta. */
+  width: 350px;
+  /* Espaciado interno para que el contenido no toque los bordes. */
   padding: 30px;
+  /* Bordes redondeados para suavizar la apariencia. */
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  /* Sombra suave que da profundidad y eleva la tarjeta sobre el fondo. */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* Un borde sutil y semitransparente que define el límite de la tarjeta de cristal. */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* Centra el texto de todos los elementos hijos. */
   text-align: center;
 }
 
+/* --- 3. Sección de Búsqueda --- */
 .busqueda {
+  /* Usa Flexbox para alinear el campo de texto y el botón en una fila. */
   display: flex;
+  /* Añade un espacio de 10px entre el input y el botón. */
   gap: 10px;
+  /* Margen inferior para separarlo de la sección de resultados. */
   margin-bottom: 20px;
 }
 
 .busqueda input {
+  /* Hace que el campo de texto ocupe todo el espacio disponible. */
   flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
+  /* Borde semitransparente que coincide con el estilo de cristal. */
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
 }
 
 .busqueda button {
   padding: 10px 16px;
+  /* Quita el borde por defecto del botón. */
   border: none;
   background-color: #4a67ff;
   color: white;
   border-radius: 8px;
+  /* Cambia el cursor a una mano para indicar que es clickeable. */
   cursor: pointer;
+  /* Anima el cambio de color de fondo para que sea suave. */
+  transition: background-color 0.3s ease;
 }
 
+/* Efecto al pasar el ratón por encima del botón. */
+.busqueda button:hover {
+  background-color: #3a57df;
+}
+
+/* --- 4. Contenedor de Resultados del Clima --- */
 .resultado {
   margin-top: 20px;
+  color: #333;
+  /* Animación de aparición: comienza totalmente transparente. */
+  opacity: 0; /* Inicialmente oculto para la animación */
+  /* Animación de aparición: comienza ligeramente desplazado hacia abajo. */
+  transform: translateY(10px); /* Posición inicial para la animación */
+  /* Define la duración y el tipo de animación para la opacidad y la transformación. */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Clase que se añade con JavaScript para activar la animación. */
+.resultado.visible {
+  /* El elemento se vuelve completamente visible. */
+  opacity: 1;
+  /* El elemento vuelve a su posición original. */
+  transform: translateY(0);
 }
 
 .icono {
-  font-size: 50px;
+  font-size: 60px;
   margin: 10px 0;
+}
+
+/* --- 5. Estilos de los Datos del Clima --- */
+/* Estilo para el número de la temperatura, el elemento más destacado. */
+.temperatura {
+  /* Tamaño de fuente muy grande para darle protagonismo. */
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Estilo para el símbolo de grados '°C'. */
+.temperatura sup {
+  /* Tamaño más pequeño que el número de la temperatura. */
+  font-size: 1.5rem;
+  /* Lo alinea como un superíndice. */
+  vertical-align: super;
+}
+
+/* Estilo para la descripción del clima (ej. "Soleado"). */
+.estado {
+  font-size: 1.2rem;
+  font-weight: 500;
+  /* Pone la primera letra de cada palabra en mayúscula. */
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+/* Contenedor para los detalles adicionales (humedad y viento). */
+.detalles {
+  /* Usa Flexbox para colocar los items uno al lado del otro. */
+  display: flex;
+  /* Distribuye el espacio equitativamente entre los items. */
+  justify-content: space-around;
+  margin-top: 20px;
+  padding-top: 20px;
+  /* Línea superior para separar visualmente los detalles del resto. */
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Estilo para cada uno de los items de detalle. */
+.detalle-item {
+  text-align: center;
 }
