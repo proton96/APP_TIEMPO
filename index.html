@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clima local con JSON</title>
+  <title>App del Clima | Consulta en Tiempo Real</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="contenedor">
-    <h1>Consulta del clima</h1>
+  <!-- Usamos <main> como contenedor principal para el contenido más importante de la página. Es más semántico que un div. -->
+  <main class="contenedor">
+    <header>
+      <h1>Consulta del Clima</h1>
+    </header>
 
-    <div class="busqueda">
-      <input type="text" id="ciudad" placeholder="Escribe una ciudad">
+    <!-- La sección de búsqueda es un formulario, aunque no envíe datos a un servidor. -->
+    <section class="busqueda">
+      <!-- La etiqueta <label> mejora la accesibilidad. La ocultaremos visualmente con CSS. -->
+      <label for="ciudad" class="sr-only">Nombre de la ciudad</label>
+      <input type="text" id="ciudad" placeholder="Escribe una ciudad...">
       <button id="buscarBtn">Buscar</button>
-    </div>
+    </section>
 
-    <div id="resultado" class="resultado">
-      <p>Escribe una ciudad para consultar sus datos.</p>
-    </div>
-  </div>
+    <!-- La sección de resultados. 'aria-live' avisa a los lectores de pantalla cuando el contenido cambia. -->
+    <section id="resultado" class="resultado" aria-live="polite">
+      <p>Escribe el nombre de una ciudad para ver el clima.</p>
+    </section>
+  </main>
 
   <script src="app.js"></script>
 </body>

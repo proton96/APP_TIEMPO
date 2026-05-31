@@ -37,6 +37,18 @@ body {
   text-align: center;
 }
 
+/* --- Clase de utilidad para accesibilidad --- */
+/* Oculta visualmente un elemento, pero lo mantiene accesible para lectores de pantalla. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 /* --- 3. Sección de Búsqueda --- */
 .busqueda {
   /* Usa Flexbox para alinear el campo de texto y el botón en una fila. */
