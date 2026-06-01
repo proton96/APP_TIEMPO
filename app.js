@@ -33,6 +33,22 @@ function buscarCiudad(nombreCiudad, ciudades) {
 // Cuando encontramos una ciudad, esta función se encarga de construir el HTML para mostrar sus datos.
 function mostrarCiudad(ciudad) {
   // Usamos 'innerHTML' para reemplazar el contenido del div 'resultado' con nuestro nuevo HTML.
+  // --- HTML para el pronóstico de la semana ---
+  // Primero, creamos una variable para guardar el HTML del pronóstico.
+  let pronosticoHtml = "";
+  // Verificamos si la ciudad tiene datos de pronóstico y si es un array con elementos.
+  if (ciudad.pronostico && ciudad.pronostico.length > 0) {
+    // Si hay datos, construimos el contenedor del pronóstico.
+    pronosticoHtml = `
+      <div class="pronostico-semana">
+        ${ciudad.pronostico.map(dia => `
+          <div class="dia-pronostico">
+            <p>${dia.dia}</p>
+            <div class="icono-pronostico">${dia.icono}</div>
+            <p>${dia.temp_max}° / ${dia.temp_min}°</p>
+          </div>`).join("")}
+      </div>`;
+  }
   resultado.innerHTML = `
     <h2>${ciudad.nombre}</h2>
     <div class="icono">${ciudad.icono}</div>
@@ -48,6 +64,7 @@ function mostrarCiudad(ciudad) {
         <p>${ciudad.viento} km/h</p>
       </div>
     </div>
+    ${pronosticoHtml}
   `;
   // Añadimos la clase 'visible' para activar la animación de aparición.
   // Usamos un pequeño retraso para asegurar que el DOM se ha actualizado.

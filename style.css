@@ -153,3 +153,31 @@ body {
 .detalle-item {
   text-align: center;
 }
+
+/* --- 6. Estilos para el Pronóstico Semanal --- */
+.pronostico-semana {
+  /* Usa Flexbox para alinear los días del pronóstico en una fila. */
+  display: flex;
+  /* Distribuye el espacio entre los días. */
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  /* Línea superior para separar visualmente del resto de detalles. */
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dia-pronostico {
+  /* Centra el contenido de cada día de pronóstico. */
+  text-align: center;
+  /* Espaciado entre los elementos para que no se solapen. */
+  flex: 1;
+}
+
+.dia-pronostico p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+.icono-pronostico {
+  font-size: 24px;
+}
